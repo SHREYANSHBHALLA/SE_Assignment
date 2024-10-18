@@ -6,8 +6,8 @@ tzdata==2024.2
 django-extensions==3.2.1
 
 # Development and testing dependencies
-black==23.3.0
-flake8==6.0.0
-coverage==6.5.0
-coveralls==4.0.1
+black
+flake8
+coverage
+coveralls
 
