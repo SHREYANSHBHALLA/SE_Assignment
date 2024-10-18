@@ -9,5 +9,5 @@ django-extensions==3.2.1
 black==23.3.0
 flake8==6.0.0
 coverage==6.5.0
-coveralls==0.14.0
+coveralls==4.0.1
 
