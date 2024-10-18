@@ -1,0 +1,31 @@
+language: python
+python:
+  - "3.11"  # Specify the Python version you want to use
+
+# Install dependencies
+install:
+  - pip install -r requirements.txt
+
+# Script to run checks and tests
+script:
+  - black --check .  # Check code formatting
+  - flake8 --max-line-length=88 .  # Adjusted to match black's max line length
+  - coverage run manage.py test  # Run tests with coverage
+  - env  # Print environment variables for debugging
+
+# After successful builds, report coverage to Coveralls
+after_success:
+  - coveralls  # Report coverage to Coveralls
+
+# Deployment to AWS Elastic Beanstalk
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ID
+  secret_access_key: $AWS_KEY
+  region: us-west-2
+  app: SE_Assignment
+  env: django-env-tuto-8
+  bucket_name: elasticbeanstalk-us-west-2-992382724291
+  skip_cleanup: true  # Corrected to remove quotes for boolean value
+  on:
+    branch: main  # Adjusted to match your deployment strategy
