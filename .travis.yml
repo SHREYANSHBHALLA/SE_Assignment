@@ -28,4 +28,4 @@ deploy:
   bucket_name: elasticbeanstalk-us-west-2-992382724291
   skip_cleanup: true  # Corrected to remove quotes for boolean value
   on:
-    branch: main  # Adjusted to match your deployment strategy
+    branch: main  # Adjusted to match your deployment strategy 
