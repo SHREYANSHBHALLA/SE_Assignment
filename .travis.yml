@@ -1,16 +1,17 @@
 language: python
 python:
- # - "3.10"  # Specify the Python version you want to use
+  - "3.10"  # Specify the Python version you want to use
 
 # Install dependencies
-#install:
- # - pip install -r requirements.txt
+install:
+  - pip install -r requirements.txt  # Install your project dependencies
+  - pip install coverage coveralls black flake8  # Ensure tools are installed
 
 # Script to run checks and tests
 script:
   - black --check .  # Check code formatting
-  - flake8 --max-line-length=88 .  # Adjusted to match black's max line length
-  - coverage run manage.py test  # Run tests with coverage
+  - flake8 --max-line-length=88 .  # Linting for code style
+  - coverage run -m pytest tests/test.py  # Run tests with coverage using pytest
   - env  # Print environment variables for debugging
 
 # After successful builds, report coverage to Coveralls
@@ -26,6 +27,6 @@ deploy:
   app: SE_Assignment
   env: django-env-tuto-8
   bucket_name: elasticbeanstalk-us-west-2-886436937126
-  skip_cleanup: true  # Corrected to remove quotes for boolean value
+  skip_cleanup: true  # Avoid cleaning up before deploying
   on:
-    branch: main  # Adjusted to match your deployment strategy  
+    branch: main  # Only deploy from the main branch
