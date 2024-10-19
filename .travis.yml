@@ -25,7 +25,7 @@ deploy:
   region: us-west-2
   app: SE_Assignment
   env: django-env-tuto-8
-  bucket_name: elasticbeanstalk-us-west-2-992382724291
+  bucket_name: elasticbeanstalk-us-west-2-886436937126
   skip_cleanup: true  # Corrected to remove quotes for boolean value
   on:
     branch: main  # Adjusted to match your deployment strategy  
